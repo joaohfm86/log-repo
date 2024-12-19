@@ -5,11 +5,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Adicionando mensagenss de log
+      - name: Adicionando mensagens de log
         run: |
           echo "::debug:: Mensagem de log debug"
           echo "::warning:: Mensagem de warning"
           echo "::notice:: Mensagem de log notice"
           echo "::error:: Mensagem de error executado por ${{ github.actor }}"
-
-    
+      - name: Adicionando logs agrupados
+        run: |
+          echo "::group:: Grupo de logs"
+          echo "Informação XPTO 1"
+          echo "Informação XPTO 2"
+          echo "Informação XPTO 3"
+          echo "Informação XPTO 4"
+          echo "Esse workfloe foi disparado por ${{ github.actor }}"
+          echo "::endgroup::"
